@@ -3,7 +3,7 @@ html(lang='en')
   head
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    title Ride Canceled - GIU Carpooling
+    title Booking Failed - GIU Carpooling
     style.
       body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -34,6 +34,12 @@ html(lang='en')
         margin: 15px 0;
         border-radius: 5px;
       }
+      .error-message {
+        background-color: #ffebee;
+        border-left: 4px solid #e74c3c;
+        padding: 10px 15px;
+        margin: 15px 0;
+      }
       .footer {
         text-align: center;
         margin-top: 20px;
@@ -55,30 +61,35 @@ html(lang='en')
       }
   body
     .header
-      h1 Ride Canceled
+      h1 Booking Failed
     .content
-      p Hello,
-      p We regret to inform you that your ride has been canceled. We apologize for any inconvenience this may cause.
+      p Hello #{username},
+      p We regret to inform you that your booking request could not be completed at this time.
+      
+      .error-message
+        if details
+          p #{details}
+        else
+          p There was an issue processing your booking request. Please try again later.
       
       .ride-details
-        h3 Canceled Ride Details
+        h3 Ride Details
         p
-          span.details-label Scheduled Date: 
+          span.details-label Departure Date: 
           span #{date}
         p
-          span.details-label From: 
+          span.details-label Pick-up Location: 
           span #{fromPlace}
         p
-          span.details-label To: 
+          span.details-label Destination: 
           span #{toPlace}
       
-      p This cancellation was initiated by the driver. Our system has automatically updated your booking status.
-      p You can book another ride through our platform at your convenience.
+      p You can try booking this ride again or choose another available ride.
       
       p
-        a.button(href='#') Find Another Ride
+        a.button(href='#') Try Again
     
     .footer
-      p If you have any questions or need assistance, please contact us at support@giucarpooling.com
+      p If you continue to experience issues, please contact our support team at support@giucarpooling.com
       p This is an automated message. Please do not reply to this email.
       p © 2023 GIU Carpooling. All rights reserved.

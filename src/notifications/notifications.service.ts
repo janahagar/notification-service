@@ -26,11 +26,15 @@ export class NotificationsService {
         case 'rideUpdate':
           html = pug.renderFile(`src/notifications/templates/rideUpdate.pug`, sendEmailDto.payload);
           break;
-          case 'rideCanceled':
-            // Render the cancellation email using Pug and the provided payload
-            html = pug.renderFile('src/notifications/templates/rideCanceled.pug', sendEmailDto.payload);
-            break;
-          // Add cases for other types of emails if needed
+        case 'rideCanceled':
+          // Render the cancellation email using Pug and the provided payload
+          html = pug.renderFile('src/notifications/templates/rideCanceled.pug', sendEmailDto.payload);
+          break;
+        case 'bookingFailed':
+          // Render the booking failed email using Pug and the provided payload
+          html = pug.renderFile('src/notifications/templates/bookingFailed.pug', sendEmailDto.payload);
+          break;
+        // Add cases for other types of emails if needed
     
         case 'adminAlert':
           html = pug.renderFile(`src/notifications/templates/adminAlert.pug`, sendEmailDto.payload);
@@ -38,7 +42,7 @@ export class NotificationsService {
         case 'welcome':
           html = pug.renderFile(`src/notifications/templates/welcome.pug`, sendEmailDto.payload);
           break;
-          case 'reminder':
+        case 'reminder':
           html = pug.renderFile(`src/notifications/templates/sendReminderNotification.pug`, sendEmailDto.payload);
           break;
         default:
