@@ -1,19 +1,84 @@
-html
+doctype html
+html(lang='en')
   head
-    title Ride Canceled
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Ride Canceled - GIU Carpooling
+    style.
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .header {
+        background-color: #e74c3c;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        border-radius: 5px 5px 0 0;
+      }
+      .content {
+        padding: 20px;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        border-top: none;
+        border-radius: 0 0 5px 5px;
+      }
+      .ride-details {
+        background-color: #fff;
+        border: 1px solid #eee;
+        padding: 15px;
+        margin: 15px 0;
+        border-radius: 5px;
+      }
+      .footer {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 12px;
+        color: #777;
+      }
+      .button {
+        display: inline-block;
+        background-color: #3498db;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-top: 15px;
+      }
+      .details-label {
+        font-weight: bold;
+        color: #555;
+      }
   body
-    h1 Ride Canceled
-    p Hello , we regret to inform you that your ride from #{fromPlace} to #{toPlace} scheduled for #{date} has been canceled.
-    p This cancellation was initiated by the driver. We apologize for any inconvenience caused.
+    .header
+      h1 Ride Canceled
+    .content
+      p Hello,
+      p We regret to inform you that your ride has been canceled. We apologize for any inconvenience this may cause.
+      
+      .ride-details
+        h3 Canceled Ride Details
+        p
+          span.details-label Scheduled Date: 
+          span #{date}
+        p
+          span.details-label From: 
+          span #{fromPlace}
+        p
+          span.details-label To: 
+          span #{toPlace}
+      
+      p This cancellation was initiated by the driver. Our system has automatically updated your booking status.
+      p You can book another ride through our platform at your convenience.
+      
+      p
+        a.button(href='#') Find Another Ride
     
-    p Here are the ride details:
-    ul
-      li From: #{fromPlace}
-      li To: #{toPlace}
-      li Date: #{date}
-    
-    p If you have any questions or need further assistance, please don't hesitate to contact us at support@yourplatform.com.
-    p We apologize again for the inconvenience and appreciate your understanding.
-
     .footer
-      p © 2025 Your Platform. All rights reserved.
+      p If you have any questions or need assistance, please contact us at support@giucarpooling.com
+      p This is an automated message. Please do not reply to this email.
+      p © 2025 GIU Carpooling. All rights reserved.

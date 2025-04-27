@@ -2,9 +2,78 @@ doctype html
 html(lang="en")
   head
     meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title Ride Status Update
+    style.
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .container {
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 20px;
+        background-color: #f9f9f9;
+      }
+      .header {
+        background-color: #4a90e2;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px 5px 0 0;
+        margin-bottom: 20px;
+      }
+      .footer {
+        margin-top: 30px;
+        font-size: 12px;
+        color: #777;
+        text-align: center;
+      }
+      .details {
+        background-color: #fff;
+        border: 1px solid #eee;
+        border-radius: 5px;
+        padding: 15px;
+        margin: 15px 0;
+      }
+      .status {
+        font-weight: bold;
+        color: #4a90e2;
+      }
   body
-    h1 Ride Status Update
-    p Hello #{username}, your ride status has been updated to #{status}.
+    .container
+      .header
+        h1 Ride Status Update
+      p Hello #{username},
+      
+      p Your ride status has been updated to 
+        span.status #{status}
+      
+      .details
+        h3 Ride Details:
+        p 
+          strong Date: 
+          | #{date}
+        p 
+          strong From: 
+          | #{fromPlace}
+        p 
+          strong To: 
+          | #{toPlace}
+        if details
+          p 
+            strong Additional Information: 
+            | #{details}
+      
+      p If you have any questions about this update, please contact your driver or our support team.
+      
+      p Thank you for using our carpooling service!
+      
+      .footer
+        p This is an automated message. Please do not reply to this email.
+        p &copy; #{new Date().getFullYear()} GIU Carpooling. All rights reserved.
 
 
